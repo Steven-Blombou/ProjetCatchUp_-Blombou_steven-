@@ -11,4 +11,4 @@ Modelisation Bdd et justification des cardinalités.
 Organisation du projets.
 
 Lien du trello : https://trello.com/b/zcSFKd6e/projet-catch-up
-Lien du github: 
+Lien du github: https://github.com/Steven-Blombou/ProjetCatchUp_-Blombou_steven-
