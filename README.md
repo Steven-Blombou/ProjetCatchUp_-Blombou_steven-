@@ -1,5 +1,9 @@
 # ProjetCatchUp_-Blombou_steven-
 
+27/04/20 Soir 23h
+Essaie integration des template au mvc et recherche mvc. 
+Resultat non concluant.
+
 27/04/20 PM 
 Modification modelisation BDD et creation sur phpMyAdmin.
 Recherche sur architecture MVC.
