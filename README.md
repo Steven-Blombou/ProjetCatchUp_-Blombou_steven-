@@ -1,5 +1,10 @@
 # ProjetCatchUp_-Blombou_steven-
 
+27/04/20 PM 
+Modification modelisation BDD et creation sur phpMyAdmin
+Recherche sur architecture MVC
+
+
 27/04/20 Matin
 Recherche du templates front et du template sign in.
 Modelisation Bdd et justification des cardinalités.
