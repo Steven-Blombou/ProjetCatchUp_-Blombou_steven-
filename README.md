@@ -1,5 +1,10 @@
 # ProjetCatchUp_-Blombou_steven-
 
+28/04/20 AM:
+Integration des template effectuer.
+Mise en plase des formulaire.
+Redirection effectuées.
+
 27/04/20 Soir 23h
 Essaie integration des template au mvc et recherche mvc. 
 Resultat non concluant.
@@ -10,7 +15,7 @@ Recherche sur architecture MVC.
 Mise en place de l architecture projet.
 
 
-27/04/20 Matin
+27/04/20 AM
 Recherche du templates front et du template sign in.
 Modelisation Bdd et justification des cardinalités.
 Organisation du projet.
