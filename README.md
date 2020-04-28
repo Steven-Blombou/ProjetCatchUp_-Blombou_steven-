@@ -2,7 +2,7 @@
 
 28/04/20 AM:
 Integration des template effectuer.
-Mise en plase des formulaire.
+Mise en plase des formulaires.
 Redirection effectuées.
 
 27/04/20 Soir 23h
