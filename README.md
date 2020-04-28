@@ -1,5 +1,10 @@
 # ProjetCatchUp_-Blombou_steven-
 
+28/04/20 PM:
+Incription et connection en php fonctionnel.
+Gestion et affcichage des erreurs en ajax ok.
+Affchage du nomUser et seDeconnecter ds navBar apres connexion a revoir.
+
 28/04/20 AM:
 Integration des template effectuer.
 Mise en plase des formulaires.
