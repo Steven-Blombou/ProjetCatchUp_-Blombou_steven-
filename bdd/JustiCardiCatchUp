@@ -1,0 +1,82 @@
+Justification des cardinalitées:
+
+User / TypeUser:
+Un user a tjr un typeUser
+Un user ne peut avoir qu'un seul typeUser      1-1
+
+Un typeUser n'est pas tjr un user
+Un typeUser peut avoir une infinite de user      0-n
+
+
+
+User / Archive: 
+Un user n'est pas tjr archivé 
+Un user peut etre archivé une infinité              0-n
+
+Une archive a tjr un user
+Une archive n as qu un seul user                      1-1
+
+
+User / Commentaires:
+Un user n'as pas tjr de com 
+Un user peut avoir un infinité de com              0-n
+
+Un commentaire a tjr un user
+un commentaire ne peut avoir qu'un user       1-1
+
+
+
+User / Article:
+Un user ne poste pas tjr d'article
+Un user peut posté une infiité d'article            0-n
+
+Un article a tjr un user
+Un article ne peut avoir qu'un user                  1-1
+
+
+
+Article / Archive:
+Un article n'a pas  tjr une archive
+Un article a une infinité d'archive                      0-n
+
+Une archive a tjr a un article 
+Une archive a qu un seul article                         1-1
+
+
+
+Article / Image:
+Un article n'as pas tjr une image
+Un article peut avoir une infinité d'image          0-n
+
+Une image a tjr un aricle 
+Une image n'as qu un seul article                        1-1
+
+
+
+Article / Categorie:
+Un article a tjr une categorie
+Un article peut avoir une infinité de categorie    1-n
+
+Une categorie n'as pas tjr un article 
+Une categorie peut avoir une infinité d'articles    0-n
+
+
+
+Article / Commentaire:
+Un article n'as pas tjr de commentaire 
+Un Article peut avoir une infinité de commentaire  0-n
+
+Un commentaire a tjr un article 
+Un commentaire n as qu un seul article                    1-1
+
+
+
+Archive / Commentaire:
+Une archive a tjr un commentaire 
+Une archive n'as qu'un commentaire                    1-1
+
+Un commentaire n'as pas tjr d'archive
+Un commentaire peut avoir une infinité d'archive               0-n
+
+
+
