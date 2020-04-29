@@ -1,7 +1,7 @@
 # ProjetCatchUp_-Blombou_steven-
 
 29/04/20 AM: 
-Espace menbre.
+Espace membre.
 Update password et mail fct mais update pas les bonnes valeurs.
 Correction gestion des erreurs et ajout de nouvelles.
 Gestion erreur sur account a debug.
