@@ -1,12 +1,12 @@
 <?php
 session_start();
 include '../../controller/session.php';
-include '../../model/connectBdd.php';
+include '../../controller/bloquePagePublic.php';
  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>S'enregistrer</title>
+	<title>Votre profil</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -34,81 +34,45 @@ include '../../model/connectBdd.php';
 </head>
 <body>
 
-			<!-- Gesttion des erreurs -->
-	<?php
-  if(isset($_GET['erreur'])){
-                $err = $_GET['erreur'];
-                if($err==1)
-                    $erreur_register="Votre Mot de Passe n'est pas valide";
-				elseif ($err==2)
-					         $erreur_register="Pseudo déjà utilisée !";
-				elseif ($err==3)
-					         $erreur_register="Adresse Mail déjà utilisée !";
-				elseif ($err==4)
-					         $erreur_register="Votre adresse mail n'est pas valide !";
-				elseif ($err==5)
-					         $erreur_register="Vos adresses mail ne sont pas identiques !";
-				elseif ($err==6)
-					         $erreur_register="Votre pseudo ne doit pas dépasser 100 caractères !";
-				elseif ($err==7)
-					         $erreur_register="Tous les champs doivent être complétés !";
-				elseif ($err==8)
-					         $erreur_register="Tous les champs doivent être complétés !";
-		   }
-?>
+
 
 
 	<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form action="../../controller/traitementRegister.php" method="POST" class="login100-form validate-form">
+			<form action="../../controller/traitementAccount.php" method="POST" class="login100-form validate-form">
 				<span class="login100-form-title p-b-37">
-					S'enregistrer
+					Profil de <?php echo  ( "&nbsp" . $_SESSION['username'] . "</a>");?>
 				</span>
 
-				<?php
-           if(isset($erreur_register)) { // Je verifie si il y a une valeur ds ma variable erreur
-              echo '<font color="red">'.$erreur_register."</font>"; // Si oui j affiche le message d erreur en rouge
-           }
-					 ?>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Entrer votre pseudo">
-					<input class="input100" type="text" name="pseudo_user" placeholder="Pseudo de l'utilisateur">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Entrer votre nom d'utilisateur">
-					<input class="input100" type="text" name="nom_user" placeholder="Nom de l'utilisateur">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Entrer votre prenom d'utilisateur">
-					<input class="input100" type="text" name="prenom_user" placeholder="Prenom de l'utilisateur">
+					<input class="input100" type="text" name="pseudo_user" placeholder="Modifier votre pseudo">
 					<span class="focus-input100"></span>
 				</div>
 
         <div class="wrap-input100 validate-input m-b-20" data-validate="Entrer votre email">
-					<input class="input100" type="text" name="mail_username" placeholder="Mail de l'utilisateur">
+					<input class="input100" type="text" name="mail_username" placeholder="Modifier votre email">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Confirmer votre email">
-					<input class="input100" type="text" name="mail2_username" placeholder="Confirmer votre mail">
+					<input class="input100" type="text" name="mail_confirm" placeholder="Confirmer votre mail">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Entrer votre password">
-					<input class="input100" type="password" name="password_user" placeholder="Entrer votre password">
+					<input class="input100" type="password" name="password_user" placeholder="Modifier votre password">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Confirmer votre password">
-					<input class="input100" type="password" name="password2_user" placeholder="Confirmer votre password">
+					<input class="input100" type="password" name="password_confirm" placeholder="Confirmer votre password">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="container-login100-form-btn">
 					<button class="login100-form-btn" name="formregister" value='LOGIN'>
-						S'enregistrer
+						Modifier
 					</button>
 				</div>
 

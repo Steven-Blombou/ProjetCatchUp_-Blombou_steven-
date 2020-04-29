@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'functions.php';
 if(isset($_POST['formregister'])){
     $pseudo_user = htmlspecialchars($_POST['pseudo_user']);
     $nom_user = htmlspecialchars($_POST['nom_user']);
@@ -9,19 +10,7 @@ if(isset($_POST['formregister'])){
     $password_user = password_hash($_POST['password_user'], PASSWORD_BCRYPT);
     $password2_user = ($_POST['password2_user']);
 
-    try   {
-      // $user = "root";
-      // $pass = "";
-      // Je me connecte à ma bdd
-      // $bdd = new PDO('mysql:host=localhost;dbname=crud;charset=utf8', $user, $pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)); // connection localhost
-      $bdd = new PDO('mysql:host=db5000303628.hosting-data.io;dbname=dbs296615', 'dbu526524', 'jXd)G9)8', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-      // return $bdd;
-    }catch(Exception $e)
-    {
-      // En cas d'erreur, un message s'affiche et tout s'arrête
-            die('Erreur : '.$e->getMessage());
-    }
-
+    include('../model/connectBdd.php');
 
     if(!empty($_POST['pseudo_user']) AND !empty($_POST['nom_user']) AND !empty($_POST['prenom_user']) AND !empty($_POST['mail_username']) AND !empty($_POST['mail2_username'])AND !empty($_POST['password_user'])AND !empty($_POST['password2_user'])) {
        $pseudolength = strlen($pseudo);
@@ -39,15 +28,21 @@ if(isset($_POST['formregister'])){
                     $passisvalid = password_verify($password2_user, $password_user);
                       if($passisvalid == 1)
 					  {
-                      $sql = $bdd->prepare("INSERT INTO T_User_catch_up (pseudo_user, nom_user, prenom_user, mail_username, password_user, id_typeUser) VALUES (:pseudo_user, :nom_user, :prenom_user, :mail_username, :password_user, :id_typeUser)");
+                      $sql = $bdd->prepare("INSERT INTO T_User_catch_up (pseudo_user, nom_user, prenom_user, mail_username, password_user, id_typeUser, confirmation_token) VALUES (:pseudo_user, :nom_user, :prenom_user, :mail_username, :password_user, :id_typeUser, :confirmation_token)");
+                      $token = str_random(60);
                       $sql->execute(array(
                         'pseudo_user'=> $pseudo_user,
                         'nom_user'=> $nom_user,
                         'prenom_user'=> $prenom_user,
                         'mail_username'=> $mail_username,
                         'password_user'=> $password_user,
-                        'id_typeUser'=> 3));
+                        'id_typeUser'=> 3,
+                        'confirmation_token'=> $token));
+                        $user_id = $bdd->lastInsertId();
+                        mail($_POST['mail_username'], 'confirmation de votre inscription', "Afin de valider votre compte, merci de cliquer sur ce lien\n\nhttp://blombou.simplon-charleville.fr/catch_up/controller/confirm.php?id=$user_id&token=$token");
+                        $_SESSION['flash']['success'] = 'Un email de confirmation vous a été envoyé pour valider votre compte !';
 						header('Location: http://blombou.simplon-charleville.fr/catch_up/view/Login/login.php?message=1');
+            // die();
 					  	}
                    else
 				   {

@@ -47,9 +47,17 @@ session_start();
             if(isset($_GET['erreur'])){  //je verifie si il ya des erreurs
                 $err = $_GET['erreur'];
                 if($err==1 || $err==2 || $err==3)
-                    echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>"; // si oui affichage du message d erreur en rouge
+                    echo "<p style='color:red'>Utilisateur ou mot de passe incorrect ou token plus valide</p>"; // si oui affichage du message d erreur en rouge
             }
             ?>
+
+            <?php
+                if(isset($_GET['erreur'])){  //je verifie si il ya des erreurs
+                    $err = $_GET['erreur'];
+                    if($err==4)
+                        echo "<p style='color:red'>Ce token n'est plus valide</p>"; // si oui affichage du message d erreur en rouge
+                }
+                ?>
 
             <?php
             if(isset($_GET['message'])){  //je verifie si il ya des erreurs
@@ -58,6 +66,15 @@ session_start();
                     echo "<p style='color:green'>Votre compte a bien été créé</p>"; // si oui affichage du message d erreur en rouge
             }
             ?>
+
+            <?php if(isset($_SESSION['flash'])): ?>
+              <?php foreach($_SESSION['flash'] as $type => $message): ?>
+                <div class="alert alert-<?= $type; ?>">
+                  <?= $message; ?>
+                </div>
+              <?php endforeach; ?>
+              <?php unset($_SESSION['flash']); ?>
+            <?php endif; ?>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Entrer votre pseudo ou votre mail">
 					<input class="input100" type="text" name="mail_username" placeholder="pseudo ou mail">
@@ -97,7 +114,7 @@ session_start();
 
 				<div class="text-center">
 					<a href="../index.php" class="txt2 hov1">
-						Se Deconnecter
+						Retour a l'accueil:
 					</a>
 				</div>
 			</form>

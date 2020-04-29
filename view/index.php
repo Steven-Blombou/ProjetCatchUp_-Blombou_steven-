@@ -47,7 +47,7 @@ include '../controller/session.php';
                                     if (isset($_SESSION['username']) && isset($_SESSION['typeuser'])) // Je verifie l existence des valeurs de session username et type par securité
                                     {
                                     echo ("<li>");
-                                    echo ("<a href=''>" . "bonjour" . "&nbsp" . $_SESSION['username'] . "</a>"); // "&nbsp"=espace en php  J etablie la connexion et j affiche le message
+                                    echo ("<a href='Login/account.ph'>" . "bonjour" . "&nbsp" . $_SESSION['username'] . "</a>"); // "&nbsp"=espace en php  J etablie la connexion et j affiche le message
                                     echo ('<a href="../controller/seDeconnecter.php"> se déconnecter </a>'); //  J inclus la possibilité de se deconnecter
                                     echo ("</li>");
                                      }

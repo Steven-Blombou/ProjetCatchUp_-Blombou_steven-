@@ -7,4 +7,5 @@ unset($_COOKIE["catch_up_name"]); // je supprime les variable direct pas la vale
 unset($_COOKIE["catch_up_type_user"]);
 header('Location: ../view/index.php'); // redirection
 session_destroy(); // je detruit la session
+$_SESSION['flash']['success'] = 'Vous êtes maintenant deconnecté !';
 ?>
