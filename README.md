@@ -1,7 +1,13 @@
 # ProjetCatchUp_-Blombou_steven-
 
+29/04/20 AM 5h:
+Modification connexion et inscription.
+Affichage etat ds navBar ok.
+Validation par mail fonctionnelle.
+Formulaire d'édition de profil. 
+
 28/04/20 PM:
-Incription et connection en php fonctionnel.
+Inscription et connexion en php fonctionnel.
 Gestion et affcichage des erreurs en ajax ok.
 Affchage du nomUser et seDeconnecter ds navBar apres connexion a revoir.
 
