@@ -1,5 +1,11 @@
 # ProjetCatchUp_-Blombou_steven-
 
+29/04/20 PM:
+Debut refactorisation poo.
+Database User et Connexion poo.
+Conneion nn fct.
+Update profil a corriger.
+
 29/04/20 AM: 
 Espace membre.
 Update password et mail fct mais update pas les bonnes valeurs.
