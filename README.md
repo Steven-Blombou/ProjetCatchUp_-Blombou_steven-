@@ -1,5 +1,12 @@
 # ProjetCatchUp_-Blombou_steven-
 
+29/04/20 AM: 
+Espace menbre.
+Update password et mail fct mais update pas les bonnes valeurs.
+Correction gestion des erreurs et ajout de nouvelles.
+Gestion erreur sur account a debug.
+
+
 29/04/20 AM 5h:
 Modification connexion et inscription.
 Affichage etat ds navBar ok.
