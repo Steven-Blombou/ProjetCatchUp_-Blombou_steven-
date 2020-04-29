@@ -1,9 +1,13 @@
 # ProjetCatchUp_-Blombou_steven-
 
+29/04/20 Soir:
+Probleme d'edit profil (recup id).
+Connexion poo erreur .
+
 29/04/20 PM:
 Debut refactorisation poo.
 Database User et Connexion poo.
-Conneion nn fct.
+Connexion nn fct.
 Update profil a corriger.
 
 29/04/20 AM: 
