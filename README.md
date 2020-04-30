@@ -1,5 +1,9 @@
 # ProjetCatchUp_-Blombou_steven-
 
+30/04/20 PM:
+Mise en place MVC pour affichage des articles. Erreur lors du test 
+(routeur, view, controller etc..)
+
 30/04/20 AM:
 Inscription, verif par mail en poo.
 Edit a revoir et poo nn fct.
