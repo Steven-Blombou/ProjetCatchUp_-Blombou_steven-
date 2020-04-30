@@ -1,5 +1,9 @@
 # ProjetCatchUp_-Blombou_steven-
 
+30/04/20 AM:
+Inscription, verif par mail en poo.
+Edit a revoir et poo nn fct.
+
 29/04/20 Soir:
 Probleme d'edit profil (recup id).
 Connexion poo erreur .
