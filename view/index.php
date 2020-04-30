@@ -200,11 +200,21 @@ include '../controller/session.php';
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
+    <?php if(isset($_SESSION['flash']['login'])){
 
+     ?>
+
+    <div class="alert alert-success">
+      <?= $_SESSION['flash']['login']; ?>
+    </div>
+    <?php unset($_SESSION['flash']['login']); }  ?>
     <!-- ##### Hero Area Start ##### -->
     <div class="hero-area">
         <div class="container">
             <div class="row align-items-center">
+
+
+
                 <div class="col-12 col-lg-8">
                     <!-- Breaking News Widget -->
                     <div class="breaking-news-area d-flex align-items-center">

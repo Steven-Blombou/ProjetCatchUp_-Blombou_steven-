@@ -1,20 +1,23 @@
 <?php
-session_start();
-$user_id = $_GET['id'];
-$token = $_GET['token'];
-require_once '../model/connectBdd.php';
-$req = $bdd->prepare('SELECT * FROM T_User_catch_up WHERE id_user = ?');
-$req->execute([user_id]);
-$user = $req->fetch();
 
-if($user AND $user->confirmation_token == $token){
-  $req2 = $bdd->prepare('UPDATE T_User_catch_up SET confirmation_token = NULL, confirmed_at = NOW() WHERE id_user = ? ');
-  $req2->execute([user_id]);
-  $_SESSION['flash']['success'] = 'Votre compte a bien été validé !';
-  $_SESSION['auth'] = $user;
-  header('Location: ../index.php');
-}else{
-  $_SESSION['flash']['danger'] = "Ce token n'est plus valide !";
-  header('Location: ../view/Login/login.php?erreur=4');
+session_start(); // Lancement session
+require_once("../model/class_Database.php");
+require_once("../model/class_User.php");
+
+$confirmation_token=$_GET['confirmation_token'];
+$conect = new Database('db5000303628.hosting-data.io', 'dbs296615', 'dbu526524', 'jXd)G9)8');
+$bdd=$conect->PDOConnexion();
+
+
+$req=$bdd->prepare("SELECT * FROM T_User_catch_up WHERE confirmation_token = ?");
+$req->execute([$confirmation_token]);
+$count = $req->rowCount();
+if($count>0){
+    $req=$bdd->prepare("UPDATE T_User_catch_up SET valid = ? WHERE confirmation_token = ?");
+    $req->execute([1,$confirmation_token]);
+    echo "Le mail a bien été validé connectez vous pour acceder a la page admin <br>";
+    echo '<a href="index.php">Conectez vous</a>';
 }
- ?>
+
+
+?>

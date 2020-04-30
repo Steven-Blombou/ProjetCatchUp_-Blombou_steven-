@@ -34,6 +34,7 @@ if(isset($_POST['mail_username']) && isset($_POST['password_user'])) // Je verif
 						{
 							$_SESSION['username'] = $recupinfo['pseudo_user']; // Je compte les valeurs des varibles
 							$_SESSION['typeuser'] = $recupinfo['id_typeUser'];
+							$_SESSION['flash']['login'] ='Vous etes connecté';
 							header('Location: ../view/index.php');  // nom d'utilisateur et mot de passe correctes
 							// echo "Success";
 						}

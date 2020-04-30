@@ -2,6 +2,15 @@
 session_start();
 include '../../controller/session.php';
 include '../../controller/bloquePagePublic.php';
+include '../../model/connectBdd.php';
+// Affichage Info user
+ $user_pseudo=$_SESSION['username'];
+ $id_user=$_GET['id_user'];
+ $req_user = "SELECT pseudo_user, mail_username, password_user FROM T_User_catch_up WHERE pseudo_user='$user_pseudo'"; // Je recherche les info ds la table user
+ $requete_user = $bdd->prepare($req_user);
+ $requete_user->execute();
+ $recupinfo = $requete_user->fetch(); // Je recupere la bonne ligne
+ // $requete_user-> closeCursor(); // Je ferme la requete
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,10 +54,10 @@ include '../../controller/bloquePagePublic.php';
 				</span>
 
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Entrer votre pseudo">
+				<!-- <div class="wrap-input100 validate-input m-b-20" data-validate="Entrer votre pseudo">
 					<input class="input100" type="text" name="pseudo_user" placeholder="Modifier votre pseudo">
 					<span class="focus-input100"></span>
-				</div>
+				</div> -->
 
         <div class="wrap-input100 validate-input m-b-20" data-validate="Entrer votre email">
 					<input class="input100" type="text" name="mail_username" placeholder="Modifier votre email">
@@ -60,7 +69,7 @@ include '../../controller/bloquePagePublic.php';
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Entrer votre password">
+				<!-- <div class="wrap-input100 validate-input m-b-25" data-validate = "Entrer votre password">
 					<input class="input100" type="password" name="password_user" placeholder="Modifier votre password">
 					<span class="focus-input100"></span>
 				</div>
@@ -68,7 +77,7 @@ include '../../controller/bloquePagePublic.php';
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Confirmer votre password">
 					<input class="input100" type="password" name="password_confirm" placeholder="Confirmer votre password">
 					<span class="focus-input100"></span>
-				</div>
+				</div> -->
 
 				<div class="container-login100-form-btn">
 					<button class="login100-form-btn" name="formregister" value='LOGIN'>
@@ -78,19 +87,11 @@ include '../../controller/bloquePagePublic.php';
 
 				<div class="text-center p-t-57 p-b-20">
 					<span class="txt1">
-						Ou se connecter avec
+						Edition de profil
 					</span>
 				</div>
 
-				<div class="flex-c p-b-112">
-					<a href="#" class="login100-social-item">
-						<i class="fa fa-facebook-f"></i>
-					</a>
 
-					<a href="#" class="login100-social-item">
-						<img src="images/icons/icon-google.png" alt="GOOGLE">
-					</a>
-				</div>
 
 				<div class="text-center">
 					<a href="../index.php" class="txt2 hov1">

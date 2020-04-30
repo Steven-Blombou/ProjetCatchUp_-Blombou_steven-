@@ -47,7 +47,7 @@ session_start();
             if(isset($_GET['erreur'])){  //je verifie si il ya des erreurs
                 $err = $_GET['erreur'];
                 if($err==1 || $err==2 || $err==3)
-                    echo "<p style='color:red'>Utilisateur ou mot de passe incorrect ou token plus valide</p>"; // si oui affichage du message d erreur en rouge
+                    echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>"; // si oui affichage du message d erreur en rouge
             }
             ?>
 
