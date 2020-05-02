@@ -3,14 +3,6 @@ session_start();
 include '../../controller/session.php';
 include '../../controller/bloquePagePublic.php';
 include '../../model/connectBdd.php';
-// Affichage Info user
- $user_pseudo=$_SESSION['username'];
- $id_user=$_GET['id_user'];
- $req_user = "SELECT pseudo_user, mail_username, password_user FROM T_User_catch_up WHERE pseudo_user='$user_pseudo'"; // Je recherche les info ds la table user
- $requete_user = $bdd->prepare($req_user);
- $requete_user->execute();
- $recupinfo = $requete_user->fetch(); // Je recupere la bonne ligne
- // $requete_user-> closeCursor(); // Je ferme la requete
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +44,8 @@ include '../../model/connectBdd.php';
 				<span class="login100-form-title p-b-37">
 					Profil de <?php echo  ( "&nbsp" . $_SESSION['username'] . "</a>");?>
 				</span>
+
+        
 
 
 				<!-- <div class="wrap-input100 validate-input m-b-20" data-validate="Entrer votre pseudo">

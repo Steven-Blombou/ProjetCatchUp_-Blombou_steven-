@@ -13,7 +13,7 @@ if(isset($_POST['formregister'])){
     include('../model/connectBdd.php');
 
     if(!empty($_POST['pseudo_user']) AND !empty($_POST['nom_user']) AND !empty($_POST['prenom_user']) AND !empty($_POST['mail_username']) AND !empty($_POST['mail2_username'])AND !empty($_POST['password_user'])AND !empty($_POST['password2_user'])) {
-       $pseudolength = strlen($pseudo);
+       $pseudolength = strlen($pseudo_user);
        if($pseudolength <= 100) {
           if($mail_username == $mail2_username) {
              if(filter_var($mail_username, FILTER_VALIDATE_EMAIL)) {
@@ -28,7 +28,7 @@ if(isset($_POST['formregister'])){
                     $passisvalid = password_verify($password2_user, $password_user);
                       if($passisvalid == 1)
 					  {
-                      $sql = $bdd->prepare("INSERT INTO T_User_catch_up (pseudo_user, nom_user, prenom_user, mail_username, password_user, id_typeUser, confirmation_token) VALUES (:pseudo_user, :nom_user, :prenom_user, :mail_username, :password_user, :id_typeUser, :confirmation_token)");
+                      $sql = $bdd->prepare("INSERT INTO T_User_catch_up (pseudo_user, nom_user, prenom_user, mail_username, password_user, id_typeUser, confirmation_token, valid) VALUES (:pseudo_user, :nom_user, :prenom_user, :mail_username, :password_user, :id_typeUser, :confirmation_token, :valid)");
                       $token = str_random(60);
                       $sql->execute(array(
                         'pseudo_user'=> $pseudo_user,
@@ -37,7 +37,8 @@ if(isset($_POST['formregister'])){
                         'mail_username'=> $mail_username,
                         'password_user'=> $password_user,
                         'id_typeUser'=> 3,
-                        'confirmation_token'=> $token));
+                        'confirmation_token'=> $token,
+                        'valid'=> 0));
                         $user_id = $bdd->lastInsertId();
                         mail($_POST['mail_username'], 'confirmation de votre inscription', "Afin de valider votre compte, merci de cliquer sur ce lien\n\nhttp://blombou.simplon-charleville.fr/catch_up/controller/confirm.php?id=$user_id&token=$token");
                         $_SESSION['flash']['success'] = 'Un email de confirmation vous a été envoyé pour valider votre compte !';
