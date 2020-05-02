@@ -1,5 +1,8 @@
 # ProjetCatchUp_-Blombou_steven-
 
+02/05/20 PM: 
+Test de debug mvc rien ne marche j avance plus 
+
 30/04/20 PM:
 Mise en place MVC pour affichage des articles. Erreur lors du test 
 (routeur, view, controller etc..)
