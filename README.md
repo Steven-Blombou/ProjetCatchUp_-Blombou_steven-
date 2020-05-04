@@ -1,5 +1,8 @@
 # ProjetCatchUp_-Blombou_steven-
 
+04/05/20 AM:
+MVC affchage des article fct
+
 02/05/20 PM: 
 Test de debug mvc rien ne marche j avance plus 
 
